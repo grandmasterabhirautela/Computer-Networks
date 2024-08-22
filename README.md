@@ -203,8 +203,9 @@ Networks are categorized based on their geographic scope, size, and purpose. Her
    - **Examples**: Bluetooth connections between a smartphone and a wireless headset.
 
 ### Network Topologies
-
-Network topology refers to the physical or logical arrangement of devices and connections in a network. Common topologies include:
+Network topology specifies the layout of a computer network. It shows how devices and cables are connected to each other.
+Network topology refers to the physical or logical arrangement of devices and connections in a network. <br>
+Common topologies include:
 
 1. **Star Topology**:
    - **Description**: All devices are connected to a central hub or switch.
@@ -256,58 +257,87 @@ Network topology refers to the physical or logical arrangement of devices and co
 The two primary networking models are the OSI (Open Systems Interconnection) Model and the TCP/IP (Transmission Control Protocol/Internet Protocol) Model. Here’s a detailed explanation of both:
 
 ### OSI Model
+The OSI (Open Systems Interconnection) model is a conceptual framework used to understand and standardize networking protocols and communication systems. It divides the communication process into seven distinct layers, each with specific functions and protocols. Here’s a detailed breakdown of each layer, its protocols,and key points:
 
-The **OSI (Open Systems Interconnection) Model** is a conceptual framework that divides network communication into seven distinct layers. Each layer has specific responsibilities and interacts with the layers directly above and below it. The OSI model provides a way to understand and design network protocols and services.
+### 1. **Physical Layer (Layer 1)**
+   - **Function:** Transmits raw bits over a physical medium.
+   - **Protocols/Standards:**
+     - **Ethernet (IEEE 802.3):** Defines physical media and signaling for Ethernet.
+     - **Fiber Channel:** Used in storage area networks for high-speed data transfer.
+     - **DSL (Digital Subscriber Line):** Provides high-speed internet over telephone lines.
+     - **Wi-Fi (IEEE 802.11):** Standards for wireless communication.
+   - **Important Points:**
+     - **Physical Medium:** Includes cables (twisted pair, coaxial, fiber optic), and wireless signals.
+     - **Data Encoding:** Methods for converting data into signals (e.g., NRZ, Manchester encoding).
+     - **Transmission Modes:** Simplex, Half-Duplex, and Full-Duplex.
+     - **Bandwidth and Data Rate:** Determines the speed and capacity of data transfer.
 
-### 1. Physical Layer (Layer 1)
+### 2. **Data Link Layer (Layer 2)**
+   - **Function:** Provides error detection and correction, and controls data flow between devices on the same network.
+   - **Protocols/Standards:**
+     - **Ethernet (IEEE 802.3):** Defines frame structure and MAC addressing.
+     - **Wi-Fi (IEEE 802.11):** Manages wireless communication and frame control.
+     - **PPP (Point-to-Point Protocol):** Used for direct connections between two nodes.
+     - **ARP (Address Resolution Protocol):** Maps IP addresses to MAC addresses.
+   - **Important Points:**
+     - **MAC Addressing:** Unique hardware address for devices on the same network segment.
+     - **Error Detection:** Mechanisms like CRC (Cyclic Redundancy Check) to detect errors.
+     - **Flow Control:** Methods to manage the rate of data transmission to prevent overflow.
 
-- **Function**: Handles the transmission and reception of raw data bits over a physical medium. It deals with the hardware aspects of network communication.
-- **Key Components**: Cables (e.g., Ethernet cables, fiber optics), connectors, network interface cards (NICs), and physical signaling.
-- **Protocols and Standards**: Ethernet (IEEE 802.3), USB, DSL, and physical aspects of wireless communication.
+### 3. **Network Layer (Layer 3)**
+   - **Function:** Handles routing and forwarding of packets across networks, and manages logical addressing.
+   - **Protocols/Standards:**
+     - **IP (Internet Protocol):** Provides logical addressing (IPv4, IPv6).
+     - **ICMP (Internet Control Message Protocol):** Used for error reporting and diagnostics (e.g., ping).
+     - **OSPF (Open Shortest Path First):** A routing protocol for finding the best path in a network.
+     - **BGP (Border Gateway Protocol):** Manages routing between different networks (e.g., ISPs).
+   - **Important Points:**
+     - **Logical Addressing:** IP addresses uniquely identify devices on a network.
+     - **Routing:** Determines the path data packets take to reach their destination.
+     - **Fragmentation:** Breaks down packets to fit the size constraints of the network.
 
-### 2. Data Link Layer (Layer 2)
+### 4. **Transport Layer (Layer 4)**
+   - **Function:** Ensures reliable data transfer, error recovery, and flow control between end systems.
+   - **Protocols/Standards:**
+     - **TCP (Transmission Control Protocol):** Provides connection-oriented, reliable data transfer.
+     - **UDP (User Datagram Protocol):** Offers connectionless, faster but less reliable communication.
+   - **Important Points:**
+     - **Connection Management:** TCP establishes a connection before data transfer and ensures data is received correctly.
+     - **Flow Control:** Techniques like sliding window to manage data flow.
+     - **Error Detection and Recovery:** Mechanisms to handle packet loss, duplication, and errors.
 
-- **Function**: Provides node-to-node data transfer and handles error detection and correction that occurred at the physical layer. It formats data into frames and manages physical addressing.
-- **Key Components**: MAC addresses, switches, and bridges.
-- **Protocols and Standards**: Ethernet (IEEE 802.3), Wi-Fi (IEEE 802.11), Point-to-Point Protocol (PPP), and Frame Relay.
-- **Error Detection and Correction**: Uses techniques such as Cyclic Redundancy Check (CRC) and Automatic Repeat reQuest (ARQ).
+### 5. **Session Layer (Layer 5)**
+   - **Function:** Manages and controls sessions between applications, including establishing, maintaining, and terminating connections.
+   - **Protocols/Standards:**
+     - **NetBIOS:** Provides session management for older applications.
+     - **RPC (Remote Procedure Call):** Allows a program to execute code on a remote server.
+   - **Important Points:**
+     - **Session Management:** Handles sessions for multiple applications simultaneously.
+     - **Synchronization:** Manages dialogues and checkpoints in communication sessions.
 
-### 3. Network Layer (Layer 3)
+### 6. **Presentation Layer (Layer 6)**
+   - **Function:** Translates, encrypts, and compresses data for the application layer.
+   - **Protocols/Standards:**
+     - **SSL/TLS (Secure Sockets Layer/Transport Layer Security):** Provides encryption for secure communication over networks.
+     - **JPEG, GIF, MPEG:** Standards for image and video compression.
+   - **Important Points:**
+     - **Data Translation:** Converts data formats to be understood by the application layer.
+     - **Encryption:** Ensures data privacy and security during transmission.
+     - **Compression:** Reduces data size to improve efficiency and speed.
 
-- **Function**: Manages packet forwarding and routing through logical addressing. It determines the best path for data to travel from source to destination.
-- **Key Components**: Routers, logical addressing (IP addresses).
-- **Protocols**: Internet Protocol (IP), Internet Control Message Protocol (ICMP), and routing protocols like RIP (Routing Information Protocol), OSPF (Open Shortest Path First), and BGP (Border Gateway Protocol).
-- **Addressing and Routing**: Includes IP addressing, subnetting, and packet routing.
+### 7. **Application Layer (Layer 7)**
+   - **Function:** Interfaces directly with end-user applications and provides network services.
+   - **Protocols/Standards:**
+     - **HTTP/HTTPS (Hypertext Transfer Protocol/Secure):** Used for web communication.
+     - **FTP (File Transfer Protocol):** Facilitates file transfers between systems.
+     - **SMTP (Simple Mail Transfer Protocol):** Used for email transmission.
+     - **DNS (Domain Name System):** Translates domain names to IP addresses.
+   - **Important Points:**
+     - **User Interface:** Provides services and applications directly to the end-users.
+     - **Application Protocols:** Define rules and conventions for specific types of network communication.
 
-### 4. Transport Layer (Layer 4)
-
-- **Function**: Ensures reliable data transfer between devices. It provides error detection, correction, and flow control. It is responsible for end-to-end communication and data integrity.
-- **Key Components**: Segments, reassembly, flow control.
-- **Protocols**: Transmission Control Protocol (TCP), User Datagram Protocol (UDP), Stream Control Transmission Protocol (SCTP).
-- **Flow Control and Error Recovery**: Ensures that data is transferred accurately and in the correct sequence.
-
-### 5. Session Layer (Layer 5)
-
-- **Function**: Manages sessions between applications. It establishes, maintains, and terminates communication sessions.
-- **Key Components**: Session management and control.
-- **Protocols**: Network File System (NFS), Session Initiation Protocol (SIP), and remote procedure call (RPC).
-- **Session Management**: Keeps track of multiple sessions and their states.
-
-### 6. Presentation Layer (Layer 6)
-
-- **Function**: Translates, encrypts, and compresses data. It ensures that data is presented in a readable format and handles data translation between different systems.
-- **Key Components**: Data formats, encryption, and compression.
-- **Protocols**: Secure Sockets Layer (SSL), Transport Layer Security (TLS), Multipurpose Internet Mail Extensions (MIME), and Extensible Markup Language (XML).
-- **Data Translation**: Converts data into formats suitable for the application layer.
-
-### 7. Application Layer (Layer 7)
-
-- **Function**: Provides network services directly to end-user applications. It interfaces with software applications to perform network-related functions.
-- **Key Components**: Application services and protocols.
-- **Protocols**: Hypertext Transfer Protocol (HTTP), File Transfer Protocol (FTP), Simple Mail Transfer Protocol (SMTP), and Domain Name System (DNS).
-- **User Interaction**: Facilitates communication between software applications and the network.
-
-
+### Summary:
+Each layer of the OSI model has a specific role and set of protocols that ensure efficient and reliable network communication. Understanding each layer's functions and protocols helps in designing, troubleshooting, and optimizing network systems.
 ### TCP/IP Model
 
 The **TCP/IP (Transmission Control Protocol/Internet Protocol) Model** is the foundational framework for the Internet and most modern networking. It simplifies the OSI model by consolidating it into four layers. The TCP/IP model is practical and closely aligned with real-world networking protocols.
@@ -349,7 +379,41 @@ The **TCP/IP (Transmission Control Protocol/Internet Protocol) Model** is the fo
 Both models are essential for understanding network communication, with OSI providing a detailed theoretical framework and TCP/IP serving as the practical basis for most modern networks.
 
 ---
+VPN (Virtual Private Network) : VPN or the Virtual Private Network is a private WAN (Wide Area Network) built on the internet. It allows the creation of a secured tunnel (protected network) between different networks using the internet (public network). By using the VPN, a client can connect to the organization’s network remotely.<br>
+● Advantages of VPN :
+1. VPN is used to connect offices in different geographical locations remotely and is
+cheaper when compared to WAN connections.
 
+2. VPN is used for secure transactions and confidential data transfer between
+multiple offices located in different geographical locations.
 
+3. VPN keeps an organization’s information secured against any potential threats or
+intrusions by using virtualization.
 
+4. VPN encrypts the internet traffic and disguises the online identity.
+
+Types of VPN :
+
+● Access VPN: Access VPN is used to provide connectivity to remote mobile users and
+telecommuters. It serves as an alternative to dial-up connections or ISDN (Integrated
+Services Digital Network) connections. It is a low-cost solution and provides a wide
+range of connectivity.
+
+● Site-to-Site VPN: A Site-to-Site or Router-to-Router VPN is commonly used in large
+companies having branches in different locations to connect the network of one office to
+another in different locations.
+There are 2 sub-categories as mentioned below:
+
+● Intranet VPN: Intranet VPN is useful for connecting remote offices in different
+geographical locations using shared infrastructure (internet connectivity and servers)
+with the same accessibility policies as a private WAN (wide area network).
+
+● Extranet VPN: Extranet VPN uses shared infrastructure over an intranet, suppliers,
+customers, partners, and other entities and connects them using dedicated connections.
+
+HTTP and HTTPS :
+HTTP is the HyperText Transfer Protocol which defines the set of rules and standards on how the information can be transmitted on the World Wide Web (WWW). It helps the web browsers and web servers for communication. It is a ‘stateless protocol’ where each command is independent with respect to the previous command. HTTP is an application layer protocol built upon the TCP. It uses port 80 by default.
+
+HTTPS is the HyperText Transfer Protocol Secure or Secure HTTP. It is an advanced and secured version of HTTP. On top of HTTP, SSL/TLS protocol is used to provide
+security. It enables secure transactions by encrypting the communication and also helps identify network servers securely. It uses port 443 by default.
 
